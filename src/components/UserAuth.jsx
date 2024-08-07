@@ -10,7 +10,7 @@ const UserAuth = () => {
         try {
             await signInWithPopup(auth, googleProvider);
             setUser(auth.currentUser)
-            console.log(auth.currentUser.email);
+            console.log(auth.currentUser.displayName);
         } catch(error) {
             console.error(error);
         }

@@ -1,8 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import UserAuth from '../components/UserAuth';
+import { auth } from '../config/firebaseConfig';
 
 const Home = () => {
+    if(auth.currentUser) {
+        console.log(auth.currentUser.email);
+    }
   return (
     <div className="min-h-screen bg-orange-500 ">
       <div>

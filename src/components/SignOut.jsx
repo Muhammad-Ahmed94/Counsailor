@@ -1,18 +1,17 @@
 import { signOut } from "firebase/auth";
-import React, { useState } from "react";
+import { useState } from "react";
 import { auth } from "../config/firebaseConfig";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import Home from "../pages/Home";
 
 const SignOut = () => {
   const [user, setUser] = useState(auth.currentUser);
-
-  const navigate = useNavigate();
 
   const handleGoogleSignOut = async () => {
     try {
       await signOut(auth);
       setUser(null);
-      navigate("/");
+      <Navigate to={<Home />} />
       
     } catch (error) {
       console.error(error);
